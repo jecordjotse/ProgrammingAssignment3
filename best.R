@@ -32,7 +32,7 @@ best <- function(state, outcome){
       #stop("invalid outcome",call. = !col)
       if(!st) stop("invalid state",call. = !st)
       if(!col) stop("invalid outcome",call. = !col)
-      outcomeByState[[state]][outcomeByState[[state]][,col] == min(outcomeByState[[state]][,col])][1]
+      outcomeByState[[state]][outcomeByState[[state]][col] == min(outcomeByState[[state]][col])][1]
 ###   if(st){
   #     if(col){
   #       outcomeByState[[state]][outcomeByState[[state]][col] == min(outcomeByState[[state]][col])][1]
