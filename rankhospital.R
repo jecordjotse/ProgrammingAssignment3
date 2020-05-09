@@ -36,12 +36,12 @@ rankhospital <- function(state, outcome, num = "best") {
       stateData <- outcomeByState[[state]]
       stateData <- stateData[order(stateData[,col]),]
       len <- nrow(stateData)
-      print(num)
-      print(len)
+      #print(num)
+      #print(len)
       rank <- if(num %in% c(1:len)) num else switch(num, "best" = 1,"worst" = len, 0)
       row.names(stateData) <- 1:len
-      print(rank)
-      print(stateData)
+      #print(rank)
+      #print(stateData)
       return(if(!is.null(rank)) stateData[rank,][,1] else NA)
       
     }else{
