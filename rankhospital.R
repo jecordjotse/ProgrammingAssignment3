@@ -43,7 +43,14 @@ rankhospital <- function(state, outcome, num = "best") {
       splitData <<- outcomeByState
   ## Return hospital name in that state with the given rank
   ## 30-day death rate
-      return(outcomeByState[[state]][outcomeByState[[state]]['rank'] == rank,1])
+      if(rank == -1){
+        return(outcomeByState[[state]][outcomeByState[[state]]['rank'] == nrow(outcomeByState[[state]]),1])
+      }else if(!is.null(rank)){
+        return(outcomeByState[[state]][outcomeByState[[state]]['rank'] == rank,1])
+      }else{
+        return()
+      }
+      
       #if(!st) stop("invalid state",call. = !st)
       ##if(!col) stop("invalid outcome",call. = !col)
       #stateData <- outcomeByState[[state]]

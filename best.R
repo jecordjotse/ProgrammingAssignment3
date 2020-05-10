@@ -32,7 +32,7 @@ best <- function(state, outcome){
       if(!col) stop("invalid outcome",call. = !col)
       
       data <- data[c(2,7,col)]
-      data <- na.omit(data[order(data[,3]),])
+      data <- na.omit(data[order(data[,3],data[,1]),])
       colnames(data) <- c("hospital", "state", "outcome")
       outcomeByState <- split(data,data$state)
       
@@ -40,7 +40,7 @@ best <- function(state, outcome){
   ## Return hospital name in that state with lowest 30-day death rate
       #stop("invalid state",call. = !st)
       #stop("invalid outcome",call. = !col)
-      outcomeByState[[state]][outcomeByState[[state]][3] == min(outcomeByState[[state]][3]),1]
+      outcomeByState[[state]][1,1]
 ###   if(st){
   #     if(col){
   #       outcomeByState[[state]][outcomeByState[[state]][col] == min(outcomeByState[[state]][col])][1]
